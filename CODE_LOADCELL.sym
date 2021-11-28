@@ -1,0 +1,176 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-024 MAIN.read_weight
+025-028 MAIN.offset
+029-02C MAIN.weight
+02D-030 send_to_com.weight_val
+02D-030 read_hx711.data
+02D     lcd_init.i
+02D-030 weight_display.weight_val
+02D-030 weight_val.offset_val
+02D     MAIN.@SCRATCH1
+02E-031 lcd_init.LCD_INIT_STRING
+031-034 weight_val.read_val
+031-034 @PRINTF_L32D_9600_62_63FPFPF.P1
+031-034 read_hx711.val
+031-034 @PRINTF_L32D_649FPFPF.P1
+031     @PSTRINGCN7_649.P2
+031     @PSTRINGC7_649.@SCRATCH1
+032     lcd_init.@SCRATCH1
+032     @PSTRINGC7_649.@SCRATCH2
+032     @PSTRINGCN7_649.@SCRATCH1
+033     @PSTRINGC7_649.@SCRATCH3
+033     @PSTRINGCN7_649.@SCRATCH2
+034     @PSTRINGC7_649.@SCRATCH4
+034     @PSTRINGCN7_649.@SCRATCH3
+035     read_hx711.i
+035     @PRINTF_L32D_9600_62_63FPFPF.P1
+035-038 weight_val.val
+035     @PRINTF_L32D_649FPFPF.P1
+035     @PSTRINGCN7_649.@SCRATCH4
+036     read_hx711.j
+036     @PRINTF_L32D_649FPFPF.@SCRATCH1
+036     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH1
+037     read_hx711.@SCRATCH1
+037     @PRINTF_L32D_649FPFPF.@SCRATCH2
+037     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH2
+038     @PRINTF_L32D_649FPFPF.@SCRATCH3
+038     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH3
+039-03C weight_val.noise
+039     @PRINTF_L32D_649FPFPF.@SCRATCH4
+039     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH4
+03A     @PRINTF_L32D_649FPFPF.@SCRATCH5
+03A     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH5
+03B     @PRINTF_L32D_649FPFPF.@SCRATCH6
+03B     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH6
+03C     @PRINTF_L32D_649FPFPF.@SCRATCH7
+03C     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH7
+03D-040 @ADDFF.P1
+03D-040 @DTOF.P2
+03D     weight_val.@SCRATCH1
+03D     @PRINTF_L32D_649FPFPF.@SCRATCH8
+03D     @PRINTF_L32D_9600_62_63FPFPF.@SCRATCH8
+03E     lcd_putc.c
+03E-041 @FTOSD.P1
+03E-041 @DIV3232.P2
+03E     weight_val.@SCRATCH2
+03F     @delay_ms1.P1
+03F     lcd_gotoxy.x
+03F     weight_val.@SCRATCH3
+040     lcd_gotoxy.y
+040     weight_val.@SCRATCH4
+041-044 @MULFF.P1
+041-044 @ADDFF.P2
+041     lcd_gotoxy.address
+042-045 @DIV3232.P1
+042     lcd_gotoxy.@SCRATCH1
+042     @FTOSD.@SCRATCH1
+043     lcd_send_byte.address
+044     lcd_send_byte.n
+045-048 @MULFF.P1
+045     lcd_read_byte.low
+045     lcd_send_byte.@SCRATCH1
+045     @ADDFF.@SCRATCH1
+046     lcd_read_byte.high
+046     lcd_send_nibble.n
+046     @DIV3232.@SCRATCH1
+046     @ADDFF.@SCRATCH2
+047     lcd_read_nibble.n
+047     lcd_read_byte.@SCRATCH1
+047     @DIV3232.@SCRATCH2
+047     @ADDFF.@SCRATCH3
+048     lcd_read_nibble.@SCRATCH1
+048     @DIV3232.@SCRATCH3
+048     @ADDFF.@SCRATCH4
+049     @DIV3232.@SCRATCH4
+049     @MULFF.@SCRATCH1
+049     @ADDFF.@SCRATCH5
+04A     @DIV3232.@SCRATCH5
+04A     @MULFF.@SCRATCH2
+04A     @ADDFF.@SCRATCH6
+04B     @MULFF.@SCRATCH3
+04B     @ADDFF.@SCRATCH7
+04C     @MULFF.@SCRATCH4
+04C     @ADDFF.@SCRATCH8
+04D     @MULFF.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const686.call
+000005  @const688.call
+00000C  @const708.call
+00000D  @const709.call
+000014  @delay_ms1
+000029  lcd_send_nibble
+000058  lcd_read_nibble
+000089  lcd_send_byte
+00009D  lcd_read_byte
+000101  lcd_init
+000159  lcd_gotoxy
+00016B  lcd_putc
+000197  @PSTRINGC7_649
+0001ED  @DIV3232
+00023C  read_hx711
+0002AF  @DTOF
+0002CA  @MULFF
+00033F  @ADDFF
+000480  weight_val
+000590  @FTOSD
+0005AF  @PRINTF_L32D_649FPFPF
+000674  weight_display
+000689  @PSTRINGCN7_649
+0006F7  @PRINTF_L32D_9600_62_63FPFPF
+0007C0  send_to_com
+000800  MAIN
+000800  @cinit1
+000814  @cinit2
+
+Project Directory:
+    C:\Users\qhuyd\Desktop\DA\CODE_LOADCELL\
+
+Project Files:
+    CODE_LOADCELL.c                                         [28-Nov-21 21:57  CRC=DFB69163]
+    CODE_LOADCELL.h                                         [28-Nov-21 21:39  CRC=2EB8624F]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [12-Nov-13 14:35  CRC=81334808]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [19-Sep-13 15:38  CRC=D1A6378A]
+
+Source signature=32EEAACE
+
+Units:
+    CODE_LOADCELL (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   CODE_LOADCELL.xsym
+    Errors:      CODE_LOADCELL.err
+    Ext Symbols: CODE_LOADCELL.esym
+    INHX8:       CODE_LOADCELL.hex
+    Symbols:     CODE_LOADCELL.sym
+    List:        CODE_LOADCELL.lst
+    Debug/COFF:  CODE_LOADCELL.cof
+    Project:     CODE_LOADCELL.ccspjt
+    Call Tree:   CODE_LOADCELL.tre
+    Statistics:  CODE_LOADCELL.STA

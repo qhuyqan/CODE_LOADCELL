@@ -1,0 +1,23 @@
+[PROJECT]
+Target=CODE_LOADCELL.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.015
+Compiler=PCM
+CCSVersion=5.015
+[Target Data]
+FileList=CODE_LOADCELL.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\qhuyd\Desktop\DA\CODE_LOADCELL\CODE_LOADCELL]
+Type=4
+[mru-list]
+1=CODE_LOADCELL.c
+[Opened Files]
+1=CODE_LOADCELL.c
+2=CODE_LOADCELL.h
+3=
+[CODE_LOADCELL.c]
+Type=4
+[Units]
+Count=1
+1=CODE_LOADCELL (main)
